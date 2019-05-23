@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "slope-monitor",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,13 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "echarts": "^4.2.1",
+    "element-ui": "^2.4.5",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
+    "v-charts": "^1.19.0",
     "vue": "^2.6.10",
+    "vue-amap": "^0.5.9",
     "vue-router": "^3.0.3",
     "vuex": "^3.0.1"
   },
@@ -17,12 +23,13 @@
     "@vue/cli-plugin-babel": "^3.7.0",
     "@vue/cli-plugin-eslint": "^3.7.0",
     "@vue/cli-service": "^3.7.0",
-    "@vue/eslint-config-airbnb": "^4.0.0",
     "babel-eslint": "^10.0.1",
+    "babel-plugin-component": "^1.1.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "sass": "^1.18.0",
     "sass-loader": "^7.1.0",
+    "vue-cli-plugin-element": "^1.0.1",
     "vue-template-compiler": "^2.5.21"
   },
   "eslintConfig": {
@@ -31,8 +38,7 @@
       "node": true
     },
     "extends": [
-      "plugin:vue/essential",
-      "@vue/airbnb"
+      "plugin:vue/essential"
     ],
     "rules": {},
     "parserOptions": {
