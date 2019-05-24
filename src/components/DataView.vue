@@ -1,36 +1,24 @@
 <template>
-  <div class="DataTable-wrapper">
+  <div class="DataView-wrapper">
     <h1 v-if="cur_source_id">{{'监测点位 #'+ cur_source_id}}</h1>
-    <ve-bar :data="chart_data" height="600px" />
+    <el-tabs v-model="cur_page" @tab-click="handleClick">
+      <el-tab-pane label="各点位移数据" name="DotsData"></el-tab-pane>
+      <el-tab-pane label="边坡稳定系数" name="SlopeData"></el-tab-pane>
+      <el-tab-pane label="Test" name="DotHistory"></el-tab-pane>
+    </el-tabs>
+    <component :is="cur_page"></component> <!-- 如果写在 el-tab-pane 标签里，除非 resize 页面，不然表格无法加载-->
   </div>
 </template>
 
 <script>
- // import HistoryData from './HistoryData.vue';
+  import DotsData from './DotsData.vue';
+ import SlopeData from './SlopeData.vue';
+ import DotHistory from './DotHistory.vue';
 
   export default {
     data() {
       return {
-        chart_data:{
-          columns: ['点位', '位移'],
-          rows: [
-            { '点位': '1/1', '位移': 1393},
-            { '点位': '1/2', '位移': 3530},
-            { '点位': '1/3', '位移': 2923},
-            { '点位': '1/4', '位移': 1723},
-            { '点位': '1/5', '位移': 3792 },
-            { '点位': '1/6', '位移': 4593},
-            { '点位': '1/1', '位移': -1393},
-            { '点位': '1/2', '位移': 3530},
-            { '点位': '1/3', '位移': 2923},
-            { '点位': '1/4', '位移': 1723},
-            { '点位': '1/5', '位移': 3792 },
-            { '点位': '1/6', '位移': -4593},
-            { '点位': '1/1', '位移': 1393},
-            { '点位': '1/2', '位移': 3530},
-            { '点位': '1/3', '位移': 2923}
-          ]
-        }
+        cur_page:'DotsData'
       }
     },
     computed: {
@@ -39,17 +27,25 @@
       }
     },
     components: {
-
+      DotsData,
+      SlopeData,
+      DotHistory
+    },
+    methods: {
+      handleClick() {
+        // alert('clicked');
+      }
     }
   };
 </script>
 
 <style lang="scss">
-  .DataTable-wrapper {
+  .DataView-wrapper {
     flex: 3;
     margin: 20px;
     padding: 10px;
     border-radius: 20px;
-    box-shadow: 5px 5px 10px #999999;
+    box-shadow: 0 0 20px #cccccc;
+    overflow: scroll;
   }
 </style>

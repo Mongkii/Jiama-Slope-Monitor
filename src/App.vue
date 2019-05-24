@@ -9,19 +9,28 @@
   import MonitorMain from './views/MonitorMain.vue';
   import MonitorNav from './views/MonitorNav.vue';
 
+  let demo_data_timer;
+
   export default {
     name: 'app',
     components: {
       MonitorMain,
       MonitorNav,
+    },
+    mounted() {
+      const handleRefreshDatabase = () => {
+        this.$store.commit('refreshDatabase');
+      };
+      demo_data_timer = setInterval(handleRefreshDatabase, 5000);
+    },
+    destroyed() {
+      clearInterval(demo_data_timer);
     }
   };
 </script>
 
 <style>
   #app {
-    display: flex;
-    flex-direction: column;
     height: 100%;
   }
 

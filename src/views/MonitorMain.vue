@@ -19,9 +19,9 @@
 
 <style>
   .MonitorMain-wrapper {
-    flex: 1;
     display: flex;
     box-sizing: border-box;
+    height: calc(100% - 125px);
     padding: 20px 40px 40px;
   }
 </style>
