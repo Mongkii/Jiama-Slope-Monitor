@@ -1,7 +1,7 @@
 const generateDataItem = (time) => {
   let item = {};
   for (let i = 0; i < 15; i++) {
-    item[`p${i}`] = (2 * Math.random() - 0.8).toFixed(3);
+    item[`p${i+1}`] = (2 * Math.random() - 0.8).toFixed(3);
   }
   item.time = time;
   item.fs = (1.2 + 0.25 * Math.random()).toFixed(3);

@@ -1,9 +1,12 @@
 <template>
-  <div class="MapView-wrapper">
-    <h1>监测地图</h1>
-    <el-select v-model="cur_area_id" filterable placeholder="请选择监测区域">
-      <el-option v-for="item in pit_list" :key="item.id" :label="item.name+'（监测点数：'+item.source.length+'）'" :value="item.id" />
-    </el-select>
+  <div class="MapView-style">
+    <div class="title_wrapper">
+      <h1 class="title">监测地图</h1>
+      <el-select v-model="cur_area_id" filterable placeholder="请选择监测区域" class="select_box">
+        <el-option v-for="item in pit_list" :key="item.id" :label="item.name+'（监测点数：'+item.source.length+'）'"
+                   :value="item.id" />
+      </el-select>
+    </div>
     <wrapped-map></wrapped-map>
   </div>
 </template>
@@ -35,14 +38,26 @@
 </script>
 
 <style lang="scss">
-  .MapView-wrapper {
+  .MapView-style {
     flex: 2;
     display: flex;
     flex-direction: column;
     margin: 20px;
-    padding: 10px;
+    padding: 20px;
     border-radius: 20px;
     box-shadow: 0 0 20px #cccccc;
     overflow: hidden;
+
+    .title_wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin: 0 0 10px 0;
+
+      .title {
+        flex: 1;
+        margin: 0;
+      }
+    }
   }
 </style>

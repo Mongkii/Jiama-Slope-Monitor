@@ -1,5 +1,5 @@
 <template>
-  <div class="MonitorMain-wrapper">
+  <div class="MonitorMain-style">
     <map-view />
     <data-table />
   </div>
@@ -18,7 +18,7 @@
 </script>
 
 <style>
-  .MonitorMain-wrapper {
+  .MonitorMain-style {
     display: flex;
     box-sizing: border-box;
     height: calc(100% - 125px);

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="MonitorNav-style">
     <nav-title />
     <nav-menu />
   </div>
@@ -16,3 +16,9 @@
     }
   };
 </script>
+
+<style lang="scss">
+  .MonitorNav-style {
+    box-shadow: 0 0 10px #999999;
+  }
+</style>

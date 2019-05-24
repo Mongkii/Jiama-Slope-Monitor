@@ -1,9 +1,8 @@
 <template>
-  <div class="WrappedMap-wrapper">
+  <div class="WrappedMap-style">
     <el-amap vid="'amap'" :center="cur_area.center || [121.503831, 31.283650]" :zoom="13" :plugin="map_plugins">
-      <el-amap-polygon
-        :path="cur_area.polygon" />
-      <el-amap-polyline v-for="item in cur_area.source" :path="item.line" />
+      <el-amap-polygon :path="cur_area.polygon" :strokeWeight="0" :fillColor="'#ffffff'" :fillOpacity="0.6"/>
+      <el-amap-polyline v-for="item in cur_area.source" :path="item.line" :strokeWeight="2" :strokeColor="'#008633'"/>
       <el-amap-marker v-for="item in cur_area.source" :position="item.point" :title="'#'+item.id"
                       :events="{click:()=>handleSetCurSource(item.id)}" />
     </el-amap>
@@ -36,7 +35,7 @@
 </script>
 
 <style lang="scss">
-  .WrappedMap-wrapper {
+  .WrappedMap-style {
     flex: 1;
     border-radius: 15px;
     overflow: hidden;

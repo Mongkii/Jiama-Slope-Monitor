@@ -28,6 +28,7 @@ class database {
       const time = item.time;
       return (time>=start_time && time<=end_time);
     }).map(item=>({time: new Date(item.time).toLocaleString(), data: item[target]}));
+      // }).map(item=>({time: item.time, data: item[target]}));
 
     // 限制获取的数据数量
     if (raw_result.length>100) {
