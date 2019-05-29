@@ -1,0 +1,9 @@
+export const toggleDemo = 'toggleDemo';
+export const setCurArea = 'setCurArea';
+export const setCurSource = 'setCurSource';
+export const refreshDatabase = 'refreshDatabase';
+export const setFs = 'setFs';
+export const setModel = 'setModel';
+export const setModelType = 'setModelType';
+export const setTimer = 'setTimer';
+export const loadModel = 'loadModel';

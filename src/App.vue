@@ -1,37 +1,38 @@
 <template>
   <div id="app">
-    <monitor-nav />
+    <monitor-title />
+    <monitor-menu />
     <monitor-main />
   </div>
 </template>
 
 <script>
+  import MonitorTitle from './views/MonitorTitle.vue';
+  import MonitorMenu from './views/MonitorMenu.vue';
   import MonitorMain from './views/MonitorMain.vue';
-  import MonitorNav from './views/MonitorNav.vue';
-
-  let demo_data_timer;
 
   export default {
     name: 'app',
     components: {
-      MonitorMain,
-      MonitorNav,
-    },
-    mounted() {
-      const handleRefreshDatabase = () => {
-        this.$store.commit('refreshDatabase');
-      };
-      demo_data_timer = setInterval(handleRefreshDatabase, 5000);
-    },
-    destroyed() {
-      clearInterval(demo_data_timer);
+      MonitorTitle,
+      MonitorMenu,
+      MonitorMain
     }
   };
+
+  /*
+  /// 备忘：
+  最后更新于
+  数据预警→出现紧急情况时页面如何呈现
+  图表加入 MARKLINE?
+   */
 </script>
 
 <style>
   #app {
     height: 100%;
+    padding: 0 50px;
+    background: no-repeat linear-gradient(rgba(18, 33, 0, 0.65), rgba(18, 33, 0, 0.65)), url('../public/img/background.jpg') center/cover;
   }
 
   /* Global Style */

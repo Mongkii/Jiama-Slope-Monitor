@@ -9,6 +9,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@tensorflow/tfjs": "^1.1.2",
     "core-js": "^2.6.5",
     "echarts": "^4.2.1",
     "element-ui": "^2.4.5",
@@ -28,6 +29,7 @@
     "babel-plugin-component": "^1.1.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "gh-pages": "^2.0.1",
     "sass": "^1.18.0",
     "sass-loader": "^7.1.0",
     "vue-cli-plugin-element": "^1.0.1",

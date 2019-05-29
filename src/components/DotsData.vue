@@ -1,6 +1,6 @@
 <template>
-  <single-dot-graph v-if="focused_dot>0" :id="focused_dot" :propsHandleClick="setFocusedDot"></single-dot-graph>
-  <all-dots-graph v-else :propsHandleClick="setFocusedDot"></all-dots-graph>
+  <single-dot-graph v-if="focused_dot>0" :id.sync="focused_dot"></single-dot-graph>
+  <all-dots-graph v-else :id.sync="focused_dot"></all-dots-graph>
 </template>
 
 <script>
@@ -12,11 +12,6 @@
       return {
         focused_dot: -1
       };
-    },
-    methods: {
-      setFocusedDot(id) {
-        this.focused_dot = id;
-      }
     },
     components: {
       AllDotsGraph,

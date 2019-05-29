@@ -7,7 +7,7 @@
 <style lang="scss" scoped>
   .additional_info {
     color: #cccccc;
-    font-size: 0.9rem;
+    /*font-size: 0.9rem; /* /// rem?*/
     font-style: italic;
 
     &::before {

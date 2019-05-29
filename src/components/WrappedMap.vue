@@ -10,6 +10,8 @@
 </template>
 
 <script>
+  import {setCurSource} from '../store/effect.js';
+
   export default {
     data() {
       return {
@@ -28,7 +30,7 @@
     },
     methods: {
       handleSetCurSource(id) {
-        this.$store.commit('setCurSource',id);
+        this.$store.commit(setCurSource,id);
       }
     }
   };

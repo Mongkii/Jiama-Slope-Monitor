@@ -14,6 +14,8 @@
 <script>
   import WrappedMap from './WrappedMap.vue';
 
+  import {setCurArea} from '../store/effect.js';
+
   export default {
     data() {
       return {};
@@ -24,7 +26,7 @@
           return this.$store.state.cur_area_id;
         },
         set(value) {
-          this.$store.commit('setCurArea', value);
+          this.$store.commit(setCurArea, value);
         }
       },
       pit_list() {
@@ -39,14 +41,15 @@
 
 <style lang="scss">
   .MapView-style {
-    flex: 2;
     display: flex;
     flex-direction: column;
-    margin: 20px;
+    width: calc(40% - 20px);
     padding: 20px;
     border-radius: 20px;
-    box-shadow: 0 0 20px #cccccc;
+    box-shadow: 0 0 20px #666666;
     overflow: hidden;
+    background-color: #ffffff;
+    box-sizing: border-box;
 
     .title_wrapper {
       display: flex;

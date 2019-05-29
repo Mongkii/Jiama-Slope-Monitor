@@ -3,7 +3,7 @@
 
     <div class="title_wrapper">
       <el-button icon="el-icon-arrow-left" @click="handleClick" class="return_button"></el-button>
-    <h2 class="title_text">点位 #{{id}} 位移数据</h2>
+    <h2 class="title_text">埋点 #{{id}} 位移数据</h2>
       <el-date-picker v-model="time_range" type="datetimerange" :picker-options="picker_options" range-separator="至"
                       start-placeholder="开始日期" end-placeholder="结束日期" />
     </div>
@@ -23,7 +23,8 @@
             'time': '时间',
             'data': '位移'
           },
-          scale: [true, true]
+          scale: [true, true],
+          digit: 10
         },
         time_range: [,],
         picker_options: {
@@ -79,15 +80,11 @@
       id: {
         type: Number,
         required: true
-      },
-      propsHandleClick: {
-        type: Function,
-        required: true
       }
     },
     methods: {
       handleClick() {
-        this.propsHandleClick(-1);
+        this.$emit('update:id',-1);
       }
     },
     components: {

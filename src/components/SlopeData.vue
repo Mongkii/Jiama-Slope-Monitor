@@ -19,7 +19,8 @@
             'time': '时间',
             'data': '边坡稳定系数'
           },
-          scale:[true,true]
+          scale:[true,true],
+          digit: 10
         },
         time_range: [,],
         picker_options: {

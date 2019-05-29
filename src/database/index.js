@@ -1,9 +1,7 @@
-import generateDemoData from './generateDemoData.js';
-
 /// 以后不出错就没必要
 const verifyData = (item) => {
   const keys = Object.keys(item);
-  if (keys.length !== 17 || !keys.includes('fs') || !keys.includes('time')) {
+  if (keys.length !== 18 || !keys.includes('fs') || !keys.includes('time')) {
     alert('录入数据有误');
     return false;
   }
@@ -11,9 +9,9 @@ const verifyData = (item) => {
 };
 
 // 演示用，实际操作会与后端 SQL 对接
-class database {
+class Database {
   constructor() {
-    this.data = generateDemoData();
+    this.data = [];
   }
 
   add(item) {
@@ -24,17 +22,21 @@ class database {
 
   search(target, start_time, end_time) {
     let result = [];
-    const raw_result = this.data.filter(item=>{
+    const raw_result = this.data.filter(item => {
       const time = item.time;
-      return (time>=start_time && time<=end_time);
-    }).map(item=>({time: new Date(item.time).toLocaleString(), data: item[target]}));
-      // }).map(item=>({time: item.time, data: item[target]}));
+      return (time >= start_time && time <= end_time);
+    })
+      .map(item => ({
+        time: new Date(item.time).toLocaleString(),
+        data: item[target]
+      }));
+    // }).map(item=>({time: item.time, data: item[target]}));
 
     // 限制获取的数据数量
-    if (raw_result.length>100) {
-      const cut_num = raw_result.length/100;
-      raw_result.forEach((item,index)=>{
-        result[Math.trunc(index/cut_num)-1] = item;
+    if (raw_result.length > 100) {
+      const cut_num = raw_result.length / 100;
+      raw_result.forEach((item, index) => {
+        result[Math.trunc(index / cut_num) - 1] = item;
       });
     } else {
       result = raw_result;
@@ -47,10 +49,17 @@ class database {
     return this.data[this.data.length - 1];
   }
 
+  export(start_time, end_time) {
+    return this.data.filter(item => {
+      const time = item.time;
+      return (time >= start_time && time <= end_time);
+    });
+  }
+
   // 演示中无需改删功能
   delete(item) { }
 
   edit(item) { }
 }
 
-export default database;
+export default Database;

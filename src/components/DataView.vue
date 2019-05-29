@@ -43,12 +43,13 @@
 
 <style lang="scss">
   .DataView-style {
-    flex: 3;
-    margin: 20px;
+    width: calc(60% - 20px);
     padding: 20px;
     border-radius: 20px;
-    box-shadow: 0 0 20px #cccccc;
+    box-shadow: 0 0 20px #666666;
     overflow: scroll;
+    background-color: #ffffff;
+    box-sizing: border-box;
 
     .no_content {
       height: 100%;
