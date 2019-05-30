@@ -8,7 +8,7 @@ import VCharts from 'v-charts'
 
 Vue.use(VueAMap);
 VueAMap.initAMapApiLoader({
-  key: 'ff025605df8d398bd46968acce6570c7',
+  key: '原 KEY 由于误公开，已置换',
   plugin: ['AMap.Autocomplete', 'AMap.PlaceSearch', 'AMap.Scale', 'AMap.OverView', 'AMap.ToolBar', 'AMap.MapType', 'AMap.PolyEditor', 'AMap.CircleEditor'],
   v: '1.4.14'
 });
