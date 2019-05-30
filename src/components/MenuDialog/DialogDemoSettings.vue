@@ -99,7 +99,7 @@
       handleSubmit() {
         const handleSetTimer = () => {
           const fs = getFs(this.cur_model_type, this.$store.state);
-          const dataGenerator = getDataGenerator(this.database, this.range, fs, this.model, this.$store.commit);
+          const dataGenerator = getDataGenerator(this.database, this.range, fs, this.$store.state, this.$store.commit); // 由于传入函数的是当前组件的 model，为了使 model 能即时更新， 直接传 state 进去
           this.$store.commit(setTimer, {
             fn: dataGenerator,
             delay: this.cur_delay * 1000,

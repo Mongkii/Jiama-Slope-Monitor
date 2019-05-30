@@ -18,10 +18,13 @@ const generateDataItem = async (time, range, fs, model) => {
   return item;
 };
 
-const getDataGenerator = (database, range, fs, model, commit) => async () => {
-  const item = await generateDataItem(Date.now(), range, fs, model);
-  database.data.push(item);
-  commit(refreshDatabase);
+const getDataGenerator = (database, range, fs, state, commit) => {
+  const model = state.model;
+  return async () => {
+    const item = await generateDataItem(Date.now(), range, fs, model);
+    database.data.push(item);
+    commit(refreshDatabase);
+  };
 };
 
 const generateManyData = async (database, range, fs, model, commit) => {
