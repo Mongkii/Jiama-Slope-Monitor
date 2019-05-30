@@ -1,3 +1,4 @@
 module.exports = {
-  publicPath: '/Jiama-Slope-Monitor/'
+  publicPath: process.env.NODE_ENV === 'production' ? '/Jiama-Slope-Monitor/' : '/',
+  productionSourceMap: false
 };
