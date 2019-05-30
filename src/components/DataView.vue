@@ -1,7 +1,11 @@
 <template>
   <div class="DataView-style">
     <div v-if="cur_source_id">
-      <h1 class="title">{{'监测点位 #'+ cur_source_id}}</h1>
+      <div class="title">
+      <h1>{{'监测点位 #'+ cur_source_id}}</h1>
+        <danger-indicator :status="slope_status"/>
+        <span class="update_info">最后更新于：{{update_time}}</span>
+      </div>
       <el-tabs v-model="cur_page">
         <el-tab-pane label="各点位移数据" name="DotsData"></el-tab-pane>
         <el-tab-pane label="边坡稳定系数" name="SlopeData"></el-tab-pane>
@@ -20,8 +24,11 @@
 </template>
 
 <script>
+  import DangerIndicator from './DangerIndicator.vue';
   import DotsData from './DotsData.vue';
   import SlopeData from './SlopeData.vue';
+
+  import {STATUS_SAFE,STATUS_WARN,STATUS_DANGER} from '../assets/refer.js';
 
   export default {
     data() {
@@ -32,9 +39,26 @@
     computed: {
       cur_source_id() {
         return this.$store.state.cur_source_id;
+      },
+      latest_data() {
+        return this.$store.state.database.get(this.cur_source_id).getLatest();
+      },
+      update_time() {
+        return new Date(this.latest_data.time).toLocaleString();
+      },
+      slope_status() {
+        const fs = this.latest_data.fs;
+        if (fs>1.1) {
+          return STATUS_SAFE;
+        } else if (fs>1) {
+          return STATUS_WARN;
+        } else {
+          return STATUS_DANGER;
+        }
       }
     },
     components: {
+      DangerIndicator,
       DotsData,
       SlopeData
     }
@@ -68,7 +92,20 @@
     }
 
     .title {
-      margin: 0 0 10px 0;
+      margin-bottom: 10px;
+
+      h1 {
+        margin: 0;
+      }
+
+      * {
+        display: inline-block;
+      }
+      .update_info {
+        margin-left: 20px;
+        color: #666666;
+        font-size: 90%;
+      }
     }
   }
 </style>

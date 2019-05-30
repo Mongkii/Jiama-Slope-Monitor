@@ -7,3 +7,7 @@ export const model_url = [{
   type: SLOPE_EARTHQUAKE,
   url: '/bp_model/earthquake/model.json'
 }];
+
+export const STATUS_SAFE = 'status/safe';
+export const STATUS_WARN = 'status/warn';
+export const STATUS_DANGER = 'status/danger';

@@ -1,10 +1,11 @@
 <template>
   <div class="SlopeData-style">
-    <div  class="time_picker_wrapper">
-    <el-date-picker v-model="time_range" type="datetimerange" :picker-options="picker_options" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期" />
+    <div class="time_picker_wrapper">
+      <el-date-picker v-model="time_range" type="datetimerange" :picker-options="picker_options" range-separator="至"
+                      start-placeholder="开始日期" end-placeholder="结束日期" />
     </div>
-      <ve-line :data="chart_data" :settings="chart_settings" :legend-visible="false" height="500px" ></ve-line>
-    <additional-info>默认显示最近 24 小时数据</additional-info>
+    <ve-line :data="chart_data" :settings="chart_settings" :visual-map="chart_visualMap" :legend-visible="false" height="500px"></ve-line>
+    <additional-info>默认显示最近 24 小时数据。</additional-info>
   </div>
 </template>
 
@@ -14,14 +15,27 @@
   export default {
     data() {
       return {
-        chart_settings:{
+        chart_settings: {
           labelMap: {
             'time': '时间',
             'data': '边坡稳定系数'
           },
-          scale:[true,true],
+          scale: [true, true],
           digit: 10
         },
+        chart_visualMap: [{
+          type: 'piecewise',
+          splitNumber: 3,
+          min: 1,
+          max: 1.1,
+          inRange: {
+            color:['#ffa500']
+          },
+          outOfRange: {
+            color:['#dc143c','#60d0b0']
+          },
+          show:false
+        }],
         time_range: [,],
         picker_options: {
           shortcuts: [{
@@ -58,29 +72,30 @@
             }
           }]
         }
-      }
+      };
     },
     computed: {
       chart_data() {
         const database = this.$store.state.database;
-        const [start_time, end_time] = (this.time_range[0] && this.time_range[1])?this.time_range:[Date.now()-24*60*60*1000, Date.now()];
-        const data = database.get('1').search('fs',start_time,end_time);
+        const [start_time, end_time] = (this.time_range[0] && this.time_range[1]) ? this.time_range : [Date.now() - 24 * 60 * 60 * 1000, Date.now()];
+        const data = database.get('1')
+          .search('fs', start_time, end_time);
         return {
           columns: ['time', 'data'],
           rows: data
-        }
+        };
       }
     },
     components: {
       AdditionalInfo
     }
-  }
+  };
 </script>
 
 <style lang="scss">
-.SlopeData-style {
-  .time_picker_wrapper {
-    text-align: right;
+  .SlopeData-style {
+    .time_picker_wrapper {
+      text-align: right;
+    }
   }
-}
 </style>

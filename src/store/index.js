@@ -27,7 +27,7 @@ export default new Vuex.Store({
   mutations: {
     [effect.toggleDemo](state) {
       if (state.in_demo_mode) {
-        alert('要关闭演示模式，请连接到监控服务器！');
+        alert('要关闭演示模式，请连接到监测预警服务器！');
         /* 与服务器对接的语句 */
       } else {
         state.in_demo_mode = true;

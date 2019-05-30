@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <span>请选择要导出数据的时间范围：</span>
+  <div class="DialogExportData-style">
+    <p>请选择要导出数据的时间范围：</p>
     <el-date-picker v-model="time_range" type="datetimerange" :picker-options="picker_options" range-separator="至"
                     start-placeholder="开始日期" end-placeholder="结束日期" />
-    <additional-info>数据将保存为 CSV 格式</additional-info>
+    <additional-info class="ps">数据将保存为 CSV 格式</additional-info>
   </div>
 </template>
 
@@ -108,5 +108,13 @@
 </script>
 
 <style lang="scss">
+  .DialogExportData-style {
+    p {
+      margin: 0 0 10px;
+    }
 
+    .ps {
+      margin: 10px 0 0;
+    }
+  }
 </style>

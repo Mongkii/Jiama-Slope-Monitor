@@ -8,7 +8,7 @@
                       start-placeholder="开始日期" end-placeholder="结束日期" />
     </div>
     <ve-line :data="chart_data" :settings="chart_settings" :legend-visible="false" height="500px"></ve-line>
-    <additional-info>默认显示最近 24 小时数据</additional-info>
+    <additional-info>默认显示最近 24 小时数据。</additional-info>
   </div>
 </template>
 

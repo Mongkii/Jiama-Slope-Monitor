@@ -1,13 +1,13 @@
 <template>
-  <div class="additional_info">
+  <p class="additional_info">
     <slot></slot>
-  </div>
+  </p>
 </template>
 
 <style lang="scss" scoped>
   .additional_info {
+    margin: 0;
     color: #cccccc;
-    /*font-size: 0.9rem; /* /// rem?*/
     font-style: italic;
 
     &::before {

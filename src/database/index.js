@@ -1,13 +1,3 @@
-/// 以后不出错就没必要
-const verifyData = (item) => {
-  const keys = Object.keys(item);
-  if (keys.length !== 18 || !keys.includes('fs') || !keys.includes('time')) {
-    alert('录入数据有误');
-    return false;
-  }
-  return true;
-};
-
 // 演示用，实际操作会与后端 SQL 对接
 class Database {
   constructor() {
@@ -15,9 +5,7 @@ class Database {
   }
 
   add(item) {
-    if (verifyData(item)) {
-      this.data.push(item);
-    }
+    this.data.push(item);
   }
 
   search(target, start_time, end_time) {
