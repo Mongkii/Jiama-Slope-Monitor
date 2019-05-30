@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import monitorAreas from '../assets/monitorAreas.js';
-import Database from '../database';
-import {Timer} from '../methods/assistFunctions.js';
-import {generateDataItem} from '../database/generateDemoData.js';
+import Database from '../classes/Database.js';
+import Timer from '../classes/Timer.js';
+import {generateDataItem} from '../methods/generateDemoData.js';
 import {SLOPE_NORMAL,SLOPE_EARTHQUAKE,model_url} from '../assets/refer.js';
 import * as effect from './effect.js';
 import * as tf from '@tensorflow/tfjs/dist/index.js';

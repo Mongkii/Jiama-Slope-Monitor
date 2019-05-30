@@ -1,4 +1,4 @@
-import { getPrediction } from '../methods/MLFunction.js';
+import { getPrediction } from './MLFunction.js';
 import {refreshDatabase} from '../store/effect.js';
 
 const defaultRange = [1.0e-4, 1.0e-3];

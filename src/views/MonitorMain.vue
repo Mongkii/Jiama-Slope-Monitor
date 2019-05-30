@@ -6,10 +6,10 @@
 </template>
 
 <script>
-  import MapView from '../components/MapView.vue';
-  import DataView from '../components/DataView.vue';
+  import MapView from '../components/MapView';
+  import DataView from '../components/DataView';
 
-  import {generateManyData} from '../database/generateDemoData.js';
+  import {generateManyData} from '../methods/generateDemoData.js';
   import {getFs} from '../methods/assistFunctions.js';
   import {loadModel} from '../store/effect.js';
 

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-  import {STATUS_SAFE,STATUS_WARN,STATUS_DANGER} from '../assets/refer.js';
+  import {STATUS_SAFE,STATUS_WARN,STATUS_DANGER} from '../../../assets/refer.js';
 
   export default {
     props:{

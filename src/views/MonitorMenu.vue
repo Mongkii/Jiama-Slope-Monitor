@@ -26,10 +26,10 @@
 </template>
 
 <script>
-  import DialogAddSource from '../components/DialogAddSource.vue';
-  import DialogExportData from '../components/DialogExportData.vue';
-  import DialogSettings from '../components/DialogSettings.vue';
-  import DialogDemoSettings from '../components/DialogDemoSettings.vue';
+  import DialogAddSource from '../components/MenuDialog/DialogAddSource.vue';
+  import DialogExportData from '../components/MenuDialog/DialogExportData.vue';
+  import DialogSettings from '../components/MenuDialog/DialogSettings.vue';
+  import DialogDemoSettings from '../components/MenuDialog/DialogDemoSettings.vue';
 
   import {toggleDemo} from '../store/effect.js';
 

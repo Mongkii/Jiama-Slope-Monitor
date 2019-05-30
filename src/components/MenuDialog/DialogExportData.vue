@@ -8,9 +8,9 @@
 </template>
 
 <script>
-  import AdditionalInfo from './AdditionalInfo.vue';
+  import AdditionalInfo from '../common/AdditionalInfo.vue';
 
-  import { convertNumToDateString } from '../methods/assistFunctions.js';
+  import { convertNumToDateString } from '../../methods/assistFunctions.js';
 
   const downloadCSV = data => {
     const a = document.createElement('a');

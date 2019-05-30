@@ -12,9 +12,9 @@
 </template>
 
 <script>
-  import WrappedMap from './WrappedMap.vue';
+  import WrappedMap from './components/WrappedMap.vue';
 
-  import {setCurArea} from '../store/effect.js';
+  import {setCurArea} from '../../store/effect.js';
 
   export default {
     data() {

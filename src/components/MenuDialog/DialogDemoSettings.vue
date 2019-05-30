@@ -40,11 +40,11 @@
 </template>
 
 <script>
-  import { SLOPE_NORMAL, SLOPE_EARTHQUAKE } from '../assets/refer.js';
-  import { getPrediction } from '../methods/MLFunction.js';
-  import { getDataGenerator, generateManyData } from '../database/generateDemoData.js';
-  import { getFs } from '../methods/assistFunctions.js';
-  import { setTimer, loadModel } from '../store/effect.js';
+  import { SLOPE_NORMAL, SLOPE_EARTHQUAKE } from '../../assets/refer.js';
+  import { getPrediction } from '../../methods/MLFunction.js';
+  import { getDataGenerator, generateManyData } from '../../methods/generateDemoData.js';
+  import { getFs } from '../../methods/assistFunctions.js';
+  import { setTimer, loadModel } from '../../store/effect.js';
 
   export default {
     data() {

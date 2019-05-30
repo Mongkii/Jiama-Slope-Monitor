@@ -37,9 +37,9 @@
 </template>
 
 <script>
-  import AdditionalInfo from './AdditionalInfo.vue';
+  import AdditionalInfo from '../common/AdditionalInfo.vue';
 
-  import { SLOPE_NORMAL, SLOPE_EARTHQUAKE } from '../assets/refer.js';
+  import { SLOPE_NORMAL, SLOPE_EARTHQUAKE } from '../../assets/refer.js';
   // import {setFs} from '../store/effect.js';
 
   export default {
@@ -75,7 +75,7 @@
             fs_earthquake: this.cur_fs_earthquake
           });
            */
-          console.log('演示模式下，对设置的修改不会被保存。');
+          console.warn('演示模式下，对设置的修改不会被保存。');
         } else {
           /* 与服务器对接的语句 */
         }

@@ -24,11 +24,11 @@
 </template>
 
 <script>
-  import DangerIndicator from './DangerIndicator.vue';
-  import DotsData from './DotsData.vue';
-  import SlopeData from './SlopeData.vue';
+  import DangerIndicator from './components/DangerIndicator.vue';
+  import DotsData from './components/DotsData.vue';
+  import SlopeData from './components/SlopeData.vue';
 
-  import {STATUS_SAFE,STATUS_WARN,STATUS_DANGER} from '../assets/refer.js';
+  import {STATUS_SAFE,STATUS_WARN,STATUS_DANGER} from '../../assets/refer.js';
 
   export default {
     data() {

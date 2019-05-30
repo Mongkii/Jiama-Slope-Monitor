@@ -1,16 +1,19 @@
 <template>
-  <div class="SlopeData-style">
-    <div class="time_picker_wrapper">
+  <div class="SingleDotGraph-style">
+
+    <div class="title_wrapper">
+      <el-button icon="el-icon-arrow-left" @click="handleClick" class="return_button"></el-button>
+    <h2 class="title_text">埋点 #{{id}} 位移数据</h2>
       <el-date-picker v-model="time_range" type="datetimerange" :picker-options="picker_options" range-separator="至"
                       start-placeholder="开始日期" end-placeholder="结束日期" />
     </div>
-    <ve-line :data="chart_data" :settings="chart_settings" :visual-map="chart_visualMap" :legend-visible="false" height="500px"></ve-line>
+    <ve-line :data="chart_data" :settings="chart_settings" :legend-visible="false" height="500px"></ve-line>
     <additional-info>默认显示最近 24 小时数据。</additional-info>
   </div>
 </template>
 
 <script>
-  import AdditionalInfo from './AdditionalInfo.vue';
+  import AdditionalInfo from '../../common/AdditionalInfo.vue';
 
   export default {
     data() {
@@ -18,24 +21,11 @@
         chart_settings: {
           labelMap: {
             'time': '时间',
-            'data': '边坡稳定系数'
+            'data': '位移'
           },
           scale: [true, true],
           digit: 10
         },
-        chart_visualMap: [{
-          type: 'piecewise',
-          splitNumber: 3,
-          min: 1,
-          max: 1.1,
-          inRange: {
-            color:['#ffa500']
-          },
-          outOfRange: {
-            color:['#dc143c','#60d0b0']
-          },
-          show:false
-        }],
         time_range: [,],
         picker_options: {
           shortcuts: [{
@@ -79,11 +69,22 @@
         const database = this.$store.state.database;
         const [start_time, end_time] = (this.time_range[0] && this.time_range[1]) ? this.time_range : [Date.now() - 24 * 60 * 60 * 1000, Date.now()];
         const data = database.get('1')
-          .search('fs', start_time, end_time);
+          .search(`p${this.id}`, start_time, end_time);
         return {
           columns: ['time', 'data'],
           rows: data
         };
+      }
+    },
+    props: {
+      id: {
+        type: Number,
+        required: true
+      }
+    },
+    methods: {
+      handleClick() {
+        this.$emit('update:id',-1);
       }
     },
     components: {
@@ -93,9 +94,19 @@
 </script>
 
 <style lang="scss">
-  .SlopeData-style {
-    .time_picker_wrapper {
-      text-align: right;
+.SingleDotGraph-style {
+  .title_wrapper {
+    display: flex;
+    align-items: center;
+
+    .title_text {
+      flex: 1;
+      margin: 0;
+    }
+
+    .return_button {
+      margin-right: 20px;
     }
   }
+}
 </style>

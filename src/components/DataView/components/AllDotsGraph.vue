@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  import AdditionalInfo from './AdditionalInfo.vue';
+  import AdditionalInfo from '../../common/AdditionalInfo.vue';
 
   const formatData = (data) => { // 将数据库内容转换为图表格式
     const l = Object.keys(data)

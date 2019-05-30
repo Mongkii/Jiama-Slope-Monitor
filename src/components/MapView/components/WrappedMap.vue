@@ -10,7 +10,7 @@
 </template>
 
 <script>
-  import {setCurSource} from '../store/effect.js';
+  import {setCurSource} from '../../../store/effect.js';
 
   export default {
     data() {

@@ -21,8 +21,9 @@ class Database {
     // }).map(item=>({time: item.time, data: item[target]}));
 
     // 限制获取的数据数量
-    if (raw_result.length > 100) {
-      const cut_num = raw_result.length / 100;
+    const data_limit = 500;
+    if (raw_result.length > data_limit) {
+      const cut_num = raw_result.length / data_limit;
       raw_result.forEach((item, index) => {
         result[Math.trunc(index / cut_num) - 1] = item;
       });

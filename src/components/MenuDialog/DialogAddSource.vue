@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  import AdditionalInfo from './AdditionalInfo.vue';
+  import AdditionalInfo from '../common/AdditionalInfo.vue';
 
   export default {
     data() {
