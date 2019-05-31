@@ -25,7 +25,7 @@
   #app {
     height: 100%;
     padding: 0 50px;
-    background: no-repeat linear-gradient(rgba(18, 33, 0, 0.65), rgba(18, 33, 0, 0.65)), url('/img/background.jpg') center/cover;
+    background: no-repeat linear-gradient(rgba(18, 33, 0, 0.65), rgba(18, 33, 0, 0.65)), url('/image/background.jpg') center/cover;
   }
 
   /* Global Style */
