@@ -30,7 +30,7 @@
 
     <el-divider></el-divider>
     <h2>模型预测演示</h2>
-    <p>请按顺序输入埋点 #1～#16 的位移值，数字之间用逗号分隔。</p>
+    <p>请按顺序输入埋点 #1～#15 的位移值，数字之间用逗号分隔。</p>
     <el-input type="textarea" v-model="predict_input" placeholder="请注意位移的正负号，以远离边坡的方向为负值。" autosize></el-input>
     <div class="predict_action_bar">
       <el-button :disabled="!model" @click="handlePredictFos">预测</el-button>
@@ -89,7 +89,7 @@
           .split(/(?:,|，)\s*/)
           .map(item => Number(item));
         const model = this.model;
-        if (input_arr.length !== 16) {
+        if (input_arr.length !== 15) {
           console.warn('输入数据格式不符');
           return;
         }

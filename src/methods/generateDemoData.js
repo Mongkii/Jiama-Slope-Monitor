@@ -7,7 +7,7 @@ const generateDataItem = async (time, range, fs, model) => {
   let item = {};
   const range_arr = range ? range : defaultRange;
   const x_dis = [];
-  for (let i = 0; i < 16; i++) {
+  for (let i = 0; i < 15; i++) {
     const displacement = range_arr[0] + (range_arr[1] - range_arr[0]) * Math.random();
     x_dis.push(-1 * displacement); // 计算时使用的位移为负值，即离开边坡方向
     item[`p${i + 1}`] = displacement.toExponential(5);//(2 * Math.random() - 0.8).toFixed(3);

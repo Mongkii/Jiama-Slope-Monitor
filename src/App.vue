@@ -17,6 +17,11 @@
       MonitorTitle,
       MonitorMenu,
       MonitorMain
+    },
+    mounted() {
+      if (Notification.permission === 'default') {
+        Notification.requestPermission();
+      }
     }
   };
 </script>
