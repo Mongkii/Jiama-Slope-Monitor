@@ -1,29 +1,5 @@
-# test
+# 甲玛矿区边坡监测预警可视化系统
 
-## Project setup
-```
-npm install
-```
+毕业设计中可视化系统这一块的源代码。
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+[演示地址](https://mongkii.github.io/Jiama-Slope-Monitor/)

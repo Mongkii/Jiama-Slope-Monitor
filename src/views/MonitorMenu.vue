@@ -1,8 +1,8 @@
 <template>
   <div class="MonitorMenu-style">
     <section class="common_group">
-      <el-button type="primary" icon="el-icon-circle-plus-outline" @click="handleClickItem('DialogAddSource')">增加监测点</el-button>
-      <el-button icon="el-icon-copy-document" @click="handleClickItem('DialogExportData')">导出数据</el-button>
+      <!--<el-button type="primary" icon="el-icon-circle-plus-outline" @click="handleClickItem('DialogAddSource')">增加监测点</el-button>-->
+      <el-button type="primary" icon="el-icon-copy-document" @click="handleClickItem('DialogExportData')">导出数据</el-button>
       <el-button icon="el-icon-setting" @click="handleClickItem('DialogSettings')">设置</el-button>
     </section>
     <section class="demo_group">
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-  import DialogAddSource from '../components/MenuDialog/DialogAddSource.vue';
+  //import DialogAddSource from '../components/MenuDialog/DialogAddSource.vue';
   import DialogExportData from '../components/MenuDialog/DialogExportData.vue';
   import DialogSettings from '../components/MenuDialog/DialogSettings.vue';
   import DialogDemoSettings from '../components/MenuDialog/DialogDemoSettings.vue';
@@ -54,7 +54,7 @@
       }
     },
     components: {
-      DialogAddSource,
+      //DialogAddSource,
       DialogExportData,
       DialogSettings,
       DialogDemoSettings

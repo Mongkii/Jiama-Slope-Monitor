@@ -7,3 +7,4 @@ export const setModel = 'setModel';
 export const setModelType = 'setModelType';
 export const setTimer = 'setTimer';
 export const loadModel = 'loadModel';
+export const setLimit = 'setLimit';

@@ -40,13 +40,13 @@
       clearInterval(this.alert_noti_timer);
       switch (this.status) {
         case STATUS_WARN: {
-          const noti = createNoti('边坡可能出现危险。', { body: '当前边坡稳定安全系数小于 1.1' });
+          const noti = createNoti('边坡可能出现危险。', { body: '当前边坡稳定安全系数触发黄色预警' });
           noti();
           this.alert_noti_timer = setInterval(noti, 30000);
           break;
         }
         case STATUS_DANGER: {
-          const noti = createNoti('边坡已经失稳！', { body: '当前边坡稳定安全系数小于 1' });
+          const noti = createNoti('边坡已经失稳！', { body: '当前边坡稳定安全系数触发红色预警' });
           noti();
           this.alert_noti_timer = setInterval(noti, 10000);
           break;

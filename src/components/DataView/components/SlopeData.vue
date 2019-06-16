@@ -23,19 +23,6 @@
           scale: [true, true],
           digit: 10
         },
-        chart_visualMap: [{
-          type: 'piecewise',
-          splitNumber: 3,
-          min: 1,
-          max: 1.1,
-          inRange: {
-            color:['#ffa500']
-          },
-          outOfRange: {
-            color:['#dc143c','#60d0b0']
-          },
-          show:false
-        }],
         time_range: [,],
         picker_options: {
           shortcuts: [{
@@ -84,7 +71,28 @@
           columns: ['time', 'data'],
           rows: data
         };
-      }
+      },
+      warn_limit() {
+        return this.$store.state.warn_limit;
+      },
+      danger_limit() {
+        return this.$store.state.danger_limit;
+      },
+      chart_visualMap() {
+        return [{
+          type: 'piecewise',
+          splitNumber: 3,
+          min: this.danger_limit,
+          max: this.warn_limit,
+          inRange: {
+            color:['#ffa500']
+          },
+          outOfRange: {
+            color:['#dc143c','#60d0b0']
+          },
+          show:false
+        }]
+      },
     },
     components: {
       AdditionalInfo

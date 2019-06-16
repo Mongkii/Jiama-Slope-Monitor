@@ -46,11 +46,17 @@
       update_time() {
         return new Date(this.latest_data.time).toLocaleString();
       },
+      warn_limit() {
+        return this.$store.state.warn_limit;
+      },
+      danger_limit() {
+        return this.$store.state.danger_limit;
+      },
       slope_status() {
         const fs = this.latest_data.fs;
-        if (fs>1.1) {
+        if (fs>this.warn_limit) {
           return STATUS_SAFE;
-        } else if (fs>1) {
+        } else if (fs>this.danger_limit) {
           return STATUS_WARN;
         } else {
           return STATUS_DANGER;

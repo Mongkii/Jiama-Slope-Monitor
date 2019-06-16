@@ -6,7 +6,7 @@ import Timer from '../classes/Timer.js';
 import {generateDataItem} from '../methods/generateDemoData.js';
 import {SLOPE_NORMAL,SLOPE_EARTHQUAKE,model_url} from '../assets/refer.js';
 import * as effect from './effect.js';
-import * as tf from '@tensorflow/tfjs/dist/index.js';
+import * as tf from '@tensorflow/tfjs';
 
 Vue.use(Vuex);
 
@@ -22,7 +22,9 @@ export default new Vuex.Store({
     fs_normal: 1.456,
     fs_earthquake: 1.191,
     model_type: SLOPE_NORMAL,
-    model: undefined
+    model: undefined,
+    warn_limit:1.1,
+    danger_limit:1
   },
   mutations: {
     [effect.toggleDemo](state) {
@@ -58,6 +60,10 @@ export default new Vuex.Store({
       state.timer.fn = fn;
       state.timer.delay = delay;
       state.timer.isOn = isOn;
+    },
+    [effect.setLimit](state,{warn_limit,danger_limit}) {
+      state.warn_limit = Number(warn_limit);
+      state.danger_limit = Number(danger_limit);
     }
   },
   actions: {
